@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Успешно добавлено - Новостной портал{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fas fa-check-circle fa-4x text-success mb-3"></i>
+                <h2 class="card-title text-success">Успешно!</h2>
+                <p class="card-text">Ваша новость была успешно добавлена.</p>
+                <a href="{% url 'home' %}" class="btn btn-primary"><i class="fas fa-home"></i> Вернуться на главную</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

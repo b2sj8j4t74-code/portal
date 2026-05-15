@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ news.title }} - Новостной портал{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ news.title }}</li>
+            </ol>
+        </nav>
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h1 class="card-title mb-0"><i class="fas fa-newspaper"></i> {{ news.title }}</h1>
+            </div>
+            <div class="card-body">
+                <p class="text-muted mb-3"><i class="fas fa-calendar"></i> <strong>Дата создания:</strong> {{ news.date_created|date:"d.m.Y H:i" }} | <strong>Автор:</strong> {{ news.author.get_full_name|default:news.author.username }}</p>
+                <h5 class="card-subtitle mb-3 text-muted"><i class="fas fa-quote-left"></i> {{ news.summary }}</h5>
+                <div class="card-text">{{ news.content|linebreaks }}</div>
+            </div>
+            <div class="card-footer">
+                {% if is_author %}
+                    <a href="{% url 'edit_news' news.id %}" class="btn btn-warning"><i class="fas fa-edit"></i> Редактировать</a>
+                    <a href="{% url 'delete_news' news.id %}" class="btn btn-danger"><i class="fas fa-trash"></i> Удалить</a>
+                {% endif %}
+                <a href="{% url 'home' %}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Назад</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
