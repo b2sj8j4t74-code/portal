@@ -97,6 +97,19 @@ news_portal/
 - **Разработчик**: Григорий Саликов
 - **Группа**: 23МКН
 
+## API
+
+- Пользовательский API: `/api/users/`
+- Новостной API: `/api/news/`
+- Токен авторизации: `/api/token/`
+- Документация API: `docs/API.md`
+
+## Деплой
+
+- `requirements.txt` содержит зависимости для Django REST Framework, фильтрации, Gunicorn, WhiteNoise и Postgres/Heroku-style DATABASE_URL.
+- `Procfile` и `bin/start.sh` подготовлены для запуска на Render.
+- Настройки читают `SECRET_KEY`, `DEBUG`, `ALLOWED_HOSTS`, `DATABASE_URL` из окружения.
+
 ## Лицензия
 
 Этот проект создан в учебных целях. Все права защищены.
